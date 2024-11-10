@@ -10,8 +10,7 @@ spec:
     component: mysql
     tier: db
   ports:
-  - name: nginx-svc-port
-    protocol: TCP
+  - protocol: TCP
     port: 3306
     targetPort: 3306
 ---
@@ -26,8 +25,7 @@ spec:
     component: mysql
     tier: db
   ports:
-  - name: nginx-svc-port
-    protocol: TCP
+  - protocol: TCP
     port: 3306
     targetPort: 3306
 ---
@@ -62,7 +60,7 @@ spec:
       name: mysql
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: "my-storage-class"
+      storageClassName: expense-ebs"
       resources:
         requests:
           storage: 1Gi
