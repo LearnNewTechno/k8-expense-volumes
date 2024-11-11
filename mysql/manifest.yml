@@ -40,7 +40,7 @@ spec:
       project: expense
       component: mysql
       tier: db
-  serviceName: "mysql-headless"
+  serviceName: "mysql-headless" # this is the headless service
   replicas: 2 # by default is 1
   template:
     metadata:
@@ -50,11 +50,12 @@ spec:
         tier: db
     spec:
       containers:
-      - name: nginx
+      - name: mysql
         image: saanvilikhith/mysql:v1
         volumeMounts:
         - name: mysql
           mountPath: /var/lib/mysql
+  # this is pvc definition 
   volumeClaimTemplates:
   - metadata:
       name: mysql
